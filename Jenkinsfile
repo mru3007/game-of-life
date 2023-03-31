@@ -12,16 +12,17 @@ pipeline {
                 sh "systemctl start docker"
       }
     }
+    stage ("build_gol") {
+      steps {
+                sh "mvn install"    
+      } 
+    }    
     stage ("docker_compose") {
       steps {
                 sh "docker-compose up -d"
       } 
     }
-     stage ("build_gol") {
-      steps {
-                sh "mvn install"    
-      } 
-    }
+     
      stage ("deploy") {
       steps {
                 sh "cp -r /root/.jenkins/workspace/database/target/gameoflife.war /mnt/wars"
