@@ -25,7 +25,7 @@ pipeline {
      
      stage ("deploy") {
       steps {
-                sh "cp -r /root/.jenkins/workspace/database/gameoflife-web/target/gameoflife.war /mnt/wars"
+                sh "cp -r /root/.jenkins/workspace/final-try/gameoflife-web/target /mnt/wars"
       } 
     }
   } 
