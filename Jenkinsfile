@@ -13,8 +13,7 @@ pipeline {
       }
     }
     stage ("build_gol") {
-      steps {
-        sh "cd game-of-life"        
+      steps {    
         sh "mvn install"    
       } 
     }    
