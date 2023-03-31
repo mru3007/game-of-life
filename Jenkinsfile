@@ -14,7 +14,8 @@ pipeline {
     }
     stage ("build_gol") {
       steps {
-                sh "mvn install"    
+        sh "cd game-of-life"        
+        sh "mvn install"    
       } 
     }    
     stage ("docker_compose") {
@@ -25,7 +26,7 @@ pipeline {
      
      stage ("deploy") {
       steps {
-                sh "cp -r /root/.jenkins/workspace/database/target/gameoflife.war /mnt/wars"
+                sh "cp -r /root/.jenkins/workspace/database/gameoflife-web/target/gameoflife.war /mnt/wars"
       } 
     }
   } 
